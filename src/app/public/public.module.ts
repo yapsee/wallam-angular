@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ComponentsModule } from '../shared/components/components.module';
+import { CampaignsPublicComponent } from './campaigns-public/campaigns-public.component';
 
 
 
@@ -13,7 +14,8 @@ import { ComponentsModule } from '../shared/components/components.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    PublicComponent
+    PublicComponent,
+    CampaignsPublicComponent
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, ComponentsModule],
 })
