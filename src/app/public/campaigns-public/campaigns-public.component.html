@@ -1,1 +1,63 @@
-<p>campaigns-public works!</p>
+<div class="relative bg-white overflow-hidden">
+  <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+      <div class="sm:max-w-lg">
+        <h1 class="text-4xl font font-extrabold tracking-tight text-green-500 sm:text-6xl">
+          WALLAM
+        </h1>
+        <p class="mt-4 text-base lg:text-3xl text-dark font-bold text-bold">Ensemble construisons une sociéte plus solidaire.</p>
+        <p class="mt-4 text-base font-semibold text-gray-900">Toutes les campagnes ont été verifiées <svg class="fill-current text-green-500 w-8 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+        </svg>
+        </p>
+      </div>
+      <div>
+        <div class="mt-10">
+          <!-- Decorative image grid -->
+          <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:max-w-7xl lg:mx-auto lg:w-full">
+            <div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+              <div class="flex items-center space-x-6 lg:space-x-8">
+                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div class="w-44 h-24 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
+                    <img src="assets/images/agriculture.jpeg" alt="" class="w-full h-full object-center object-cover">
+                  </div>
+                  <div class="w-44 h-24 rounded-lg overflow-hidden">
+                    <img  src="assets/images/wallam.png" alt="" class="w-full h-full object-center object-cover">
+                  </div>
+                </div>
+                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div class="w-44 h-24 rounded-lg overflow-hidden">
+                  </div>
+                  <div class="w-44 h-24 rounded-lg overflow-hidden">
+                    <img  src="assets/images/together.jpg"  alt="" class="w-full h-full object-center object-cover">
+                  </div>
+                  <div class="w-44 h-24 rounded-lg overflow-hidden">
+                    <img src="assets/images/school.jpg" alt="" class="w-full h-full object-center object-cover">
+                  </div>
+                </div>
+                <div class="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div class="w-44 h-24 rounded-lg overflow-hidden">
+                    <img src="assets/images/medical.jpg" alt="" class="w-full h-full object-center object-cover">
+                  </div>
+                  <div class="w-44 h-24 rounded-lg overflow-hidden">
+                    <img  src="assets/images/wallam.png" alt="" class="w-full h-full object-center object-cover">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <% if user_signed_in? %>
+          <a href="/campaigns" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-3 px-8 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE </a>     
+          <% else %>
+          <a href="/users/sign_up" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-3 px-8  md:text-2xl text-gray-900 hover:bg-green-700">Demarrer une campagne</a>
+          <% end %>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<app-campaigns-list [campaignsData]="campaigns"></app-campaigns-list>
