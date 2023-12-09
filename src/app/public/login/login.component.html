@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="card w-50 mt-5" style="margin-left: 25%">
+  <div class="card-body">
+    <main class="form-signin" (submit)="submit()">
+      <form [formGroup]="loginForm">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="form-floating my-2">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="email"
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating my-1">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">
+          Sign in
+        </button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022–2023</p>
+      </form>
+    </main>
+  </div>
+</div>
