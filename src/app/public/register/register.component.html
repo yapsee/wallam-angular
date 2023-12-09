@@ -1,1 +1,92 @@
-<p>register works!</p>
+
+
+<div class="relative min-h-screen flex">
+  <div class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
+
+    <div class="sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden bg-green-500 text-white bg-no-repeat bg-cover relative">
+      <app-authcomponent ></app-authcomponent>
+    </div>
+    <div class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full w-2/5 xl:w-2/5 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white">
+      <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+          <h2 class="mt-6 text-3xl font-bold text-gray-900">
+            Inscription
+          </h2>
+          <p class="mt-2 text-sm text-gray-500">Inscrivez vous sur wallam pour demarrer une campagne!</p>
+        </div>
+        <main class="form-signin" (submit)="submit()">
+       
+        <form [formGroup]="registrationForm" class="mt-8 space-y-6">
+          <div class="mt-8 content-center">
+            <label for="firstName" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Prenom</label>
+            <input type="text" name="firstName"  formControlName="firstName" required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div class="mt-8 content-center">
+            <label for="lastName" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Nom</label>
+            <input type="text" name="lastName"  formControlName="lastName" required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div class="mt-8 content-center">
+            <label for="address" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Adresse</label>
+            <input type="text" name="address"  formControlName="address"  required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div class="mt-8 content-center">
+            <label for="phone" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Telephone</label>
+            <input type="text" name="phone"  formControlName="phone" required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div>
+          <div class="relative">
+            <label for="email" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Email</label>
+            <input type="email" name="email"  formControlName="email" autofocus required
+              class="w-full text-base px-4 py-2 border-b border-gray-300 focus:outline-none rounded-2xl focus:border-indigo-500" />
+          </div>
+          <div class="mt-8 content-center">
+            <label for="password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Mot de passe</label>
+            <input type="password" name="password"  formControlName="password" autocomplete="current-password" required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div>
+          <!-- <div class="mt-8 content-center">
+            <label for="confirmpassword" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Confirmation du mot de passe</label>
+            <input type="password" name="confirmpassword"  formControlName="confirmpassword" autocomplete="current-password" required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div> -->
+
+          <div class="mt-8 content-center">
+            <label for="password" class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Numero carte nationale d'identite</label>
+            <input type="text" name="cni"  formControlName="cni"  required
+              class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" />
+          </div>
+         
+          <!-- <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input type="checkbox" name="rememberMe"
+                class="h-4 w-4 bg-green-500 focus:ring-blue-400 border-gray-300 rounded" />
+              <label for="rememberMe"
+                class="ml-3 text-sm font-bold text-gray-700 tracking-wide">Se souvenir de moi</label>
+            </div>
+          </div>
+          <div class="text-sm">
+            <a href="" class="text-indigo-400 hover:text-blue-500">Mot de passe oublié?</a>
+          </div> -->
+          <div>
+            <button type="submit"
+              class="text-semibold w-full p-2 flex justify-center bg-gradient-to-r from-green-500 to-green-600  hover:bg-gradient-to-l hover:from-green-500 hover:to-green-600 text-gray-100 p-2 rounded-full tracking-wide font-semibold
+              2 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+              S'inscrire
+            </button>
+          </div>
+          <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
+            <span >*******</span>
+            <a href="login"
+              class="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">
+              j'ai deja un compte
+            </a>
+          </p>
+        </form>
+      </main>
+      </div>
+    </div>
+  </div>
+</div>
