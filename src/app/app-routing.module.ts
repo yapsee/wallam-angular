@@ -8,6 +8,9 @@ import { ShowComponent } from './public/show/show.component';
 import { DonateComponent } from './public/donate/donate.component';
 import { CancelPaymentComponent } from './public/cancel-payment/cancel-payment.component';
 import { SuccessPaymentComponent } from './public/success-payment/success-payment.component';
+import { CreateCampaignComponent } from './secure/create-campaign/create-campaign.component';
+import { SecureComponent } from './secure/secure.component';
+import { DashboardComponent } from './secure/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -22,9 +25,19 @@ const routes: Routes = [
       { path: 'campaigns/:id', component: ShowComponent },
       { path: 'transactions/donate/:id', component: DonateComponent },
       { path: 'cancel', component: CancelPaymentComponent },
-      { path: 'success', component: SuccessPaymentComponent }
+      { path: 'success', component: SuccessPaymentComponent },
+
     ],
-  }
+  },
+  {
+    path: '',
+    component: SecureComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'launch', component: CreateCampaignComponent },
+    ],
+  },
 ];
 
 @NgModule({

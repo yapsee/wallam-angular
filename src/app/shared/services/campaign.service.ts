@@ -31,5 +31,11 @@ export class CampaignService {
     return this.http.post<Transaction>(`${api}/transactions/donate/${campaignId}`, data);
   }
 
+
+  createCampaign(data: Campaign): Observable<Campaign> {
+    return this.http.post<Campaign>(`${api}/campaigns/create`, data);
+  }
+
+  
  
 }
