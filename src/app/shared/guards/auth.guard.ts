@@ -10,18 +10,24 @@ import { MyResponse } from "../models/response";
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
-  canActivate(
+
+  async canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.authService.getUser().subscribe({
-        next: (res: MyResponse) => {
-          Auth.user = res.data!;
-        },
-        error: (error) => {
-          this.router.navigate(['/login']);
-        },
-      });
-      return true;
+    state: RouterStateSnapshot
+  ): Promise<boolean | UrlTree> {
+    try {
+      const data: any = await this.authService.getUser().toPromise();
+      if (data) {
+        Auth.user = data;
+        return true; 
+      } else {
+        this.router.navigate(['/login']);
+        return false; 
+      }
+    } catch (error) {
+    
+      this.router.navigate(['/login']);
+      return false; 
+    }
   }
-  
 }

@@ -35,7 +35,7 @@ export class RegisterComponent  implements OnInit {
       this.authService.register(formData).subscribe(
         (responseData: any) => {
           localStorage.setItem('token', responseData['token']);
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('dashboard');
         },
         (error) => {
           if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {

@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.authService.authentification(data).subscribe(
           (responseData: any) => {
             localStorage.setItem('token', responseData['token']);
-            this.router.navigateByUrl('');
+            this.router.navigateByUrl('dashboard');
           },
           (error) => {
             if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {

@@ -11,6 +11,7 @@ import { SuccessPaymentComponent } from './public/success-payment/success-paymen
 import { CreateCampaignComponent } from './secure/create-campaign/create-campaign.component';
 import { SecureComponent } from './secure/secure.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
   {
     path: '',
     component: SecureComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
