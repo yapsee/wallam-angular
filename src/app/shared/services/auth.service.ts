@@ -18,9 +18,9 @@ export class AuthService {
     return this.http.post<Response>(`${api}/users/auth/register`, data);
   }
  
-  getUser(): Observable<MyResponse> {
+  getUser(): Observable<Response> {
    
-    return this.http.get<MyResponse>(`${api}/users/auth/current-user`);
+    return this.http.get<Response>(`${api}/users/auth/current-user`);
   }
  
 }
