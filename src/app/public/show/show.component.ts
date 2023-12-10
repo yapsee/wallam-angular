@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Campaign } from 'src/app/shared/models/transaction.model';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { CampaignService } from 'src/app/shared/services/campaign.service';
 })
 export class ShowComponent implements OnInit {
 
-  campaignId: any | undefined;
-  campaign: any; 
+  campaignId!: string;
+  campaign!: Campaign ;
 
   constructor(private route: ActivatedRoute, private campaignService: CampaignService) {}
 
