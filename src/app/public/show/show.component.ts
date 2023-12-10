@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Campaign } from 'src/app/shared/models/transaction.model';
+import { Campaign } from 'src/app/shared/models/campaign.model';
+
 import { CampaignService } from 'src/app/shared/services/campaign.service';
 
 @Component({

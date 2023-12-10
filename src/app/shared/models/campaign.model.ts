@@ -1,10 +1,18 @@
-export interface Transaction {
+import { Transaction } from "./transaction.model";
+
+export interface Campaign {
   id?: string;
+  title: string;
+  description: string;
+  kind?: string;
+  image?: string;
   status?: string;
-  provider?: string;
-  paydunyInvoiceUrl?: string | null;
+  target: string;
   dateCreated?: string;
-  comment: string;
-  amount: string;
-  donatorName: string | null;
+  account?: string;
+  user?: string;
+  progress?: number;
+  userName: string;
+  accountBalance?: number;
+  transactions?: Transaction[];
 }

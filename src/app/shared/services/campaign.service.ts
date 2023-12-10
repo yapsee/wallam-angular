@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MyResponse } from '../models/response';
 import { environment } from 'src/environments/environment';
-import { Campaign } from '../models/transaction.model';
+import { Campaign } from '../models/campaign.model';
+import { Transaction } from '../models/transaction.model';
+
 const api = environment.api;
 
 @Injectable({
@@ -24,5 +26,10 @@ export class CampaignService {
   getCampaignById(campaignId: string): Observable<Campaign> {
     return this.http.get<Campaign>(`${api}/campaigns/${campaignId}`);
   }
+
+  donate(data: Transaction, campaignId: string): Observable<Transaction> {
+    return this.http.post<Transaction>(`${api}/transactions/donate/${campaignId}`, data);
+  }
+
  
 }
