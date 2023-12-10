@@ -20,5 +20,8 @@ export class CampaignService {
     return this.http.get<MyResponse>(`${api}/campaigns/me`);
   }
  
+  getCampaignById(campaignId: String | undefined): Observable<MyResponse> {
+    return this.http.get<MyResponse>(`${api}/campaigns/${campaignId}`);
+  }
  
 }

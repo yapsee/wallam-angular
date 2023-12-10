@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let campaign of campaignsData">
           <div class="w-full mb-4 bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row lg:mb-6 border-2 border-green-500 border-opacity-0.5">
-            <a>
+            <a [routerLink]="['/campaigns', campaign.id]">
               <div class="w-full md:w-5/5 h-80">
                 <img class="object-center object-cover w-full h-full" [src]="'assets/images/agriculture.jpeg'" alt="photo">
               </div>

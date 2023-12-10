@@ -4,6 +4,7 @@ import { PublicComponent } from './public/public.component';
 import { LoginComponent } from './public/login/login.component';
 import { RegisterComponent } from './public/register/register.component';
 import { CampaignsPublicComponent } from './public/campaigns-public/campaigns-public.component';
+import { ShowComponent } from './public/show/show.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: '', component: CampaignsPublicComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'campaigns/:id', component: ShowComponent }
     ],
   }
 ];

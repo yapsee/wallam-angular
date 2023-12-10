@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ComponentsModule } from '../shared/components/components.module';
 import { CampaignsPublicComponent } from './campaigns-public/campaigns-public.component';
+import { ShowComponent } from './show/show.component';
 
 
 
@@ -15,7 +16,8 @@ import { CampaignsPublicComponent } from './campaigns-public/campaigns-public.co
     LoginComponent,
     RegisterComponent,
     PublicComponent,
-    CampaignsPublicComponent
+    CampaignsPublicComponent,
+    ShowComponent
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, ComponentsModule],
 })
