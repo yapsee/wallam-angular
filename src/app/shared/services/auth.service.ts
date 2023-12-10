@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { MyResponse } from '../models/response';
 
 const api = environment.api;
 @Injectable({
@@ -17,5 +18,9 @@ export class AuthService {
     return this.http.post<Response>(`${api}/users/auth/register`, data);
   }
  
+  getUser(): Observable<MyResponse> {
+   
+    return this.http.get<MyResponse>(`${api}/users/auth/current-user`);
+  }
  
 }
