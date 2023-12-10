@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ComponentsModule } from '../shared/components/components.module';
 import { CampaignsPublicComponent } from './campaigns-public/campaigns-public.component';
 import { ShowComponent } from './show/show.component';
+import { DonateComponent } from './donate/donate.component';
 
 
 
@@ -17,7 +18,8 @@ import { ShowComponent } from './show/show.component';
     RegisterComponent,
     PublicComponent,
     CampaignsPublicComponent,
-    ShowComponent
+    ShowComponent,
+    DonateComponent
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, ComponentsModule],
 })

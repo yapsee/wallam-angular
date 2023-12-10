@@ -1,1 +1,107 @@
-<p>{{campaign.title}}</p>
+<main class="relative container mx-auto bg-white px-4">
+  <div class="relative -mx-4 top-0 pt-[17%] overflow-hidden">
+    <img [src]="campaign.image" class="absolute inset-0 object-cover object-top w-full h-full filter blur" alt="" />
+  </div>
+
+  <div class="mt-[-10%] w-1/2 mx-auto">
+    <div class="relative pt-[56.25%] overflow-hidden rounded-2xl">
+      <img [src]="campaign.image" class="w-full h-full absolute inset-0 object-cover" alt="" />
+    </div>
+  </div>
+  <div class="text-right font-bold">
+    <span class="text-xs font-bold inline-block text-dark">
+      {{ campaign.accountBalance }} recoltée / {{ campaign.target }} XOF
+    </span>
+  </div>
+
+  <article class="">
+    <h1 class="text-base ">{{ campaign.title }}</h1>
+    <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-100">
+      <div [style.width]="campaign.progress + '%'" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+    </div>
+    <!-- component -->
+    <div *ngIf="campaign.status == 'OPENED'; else closedCampaign">
+      <div class="flex justify-center items-center h-4/12">
+        <div class="card transition duration-300 ease-in-out hover:shadow-sm flex flex-col border m-5 rounded w-screen">
+          <h1 class="font-bold text-black text-lg leading-tight border-b p-3 px- my-0">
+            Merci de faire un don ou/et partager le lien sur les réseaux sociaux
+          </h1>
+          <a [routerLink]="['/transactions/donate', campaign.id]"  class="card-btn">
+            <img src="assets/images/wallet.png" alt="" class="w-full h-4/12">
+          </a>
+          <div class="card-body p-2">
+            <div class="btn-group">
+              <a [routerLink]="['/transactions/donate', campaign.id]"  class="card-btn">
+                <button type="button" class="btn-primary hover:text-white text-dark bg-green-500 font-bold py-3 px-3 mr-1 rounded">
+                  FAIRE UN DON
+                </button>
+              </a>
+              <a
+                [href]="'https://www.facebook.com/sharer.php?u=https://www.wallam.co/campaigns/' + campaign.id"
+                target="_blank"
+              >
+                <button
+                  type="button"
+                  class="btn-outline-primary border border-green-700 hover:text-green-400 text-dark font-bold py-3 mr-1 px-6 mt-1 rounded"
+                >
+                  PARTAGER
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #closedCampaign>
+      <div class="card transition duration-300 ease-in-out hover:shadow-sm flex flex-col border m-5 rounded w-screen">
+        <h1 class="font-bold text-black text-lg leading-tight border-b p-3 px- my-0">Cette campagne est clôturée.</h1>
+        <div class="card-body p-2">
+          <div class="btn-group">
+            <a [routerLink]="" class="card-btn">
+              <button type="button" class="btn-primary hover:text-white text-dark bg-green-500 font-bold py-3 px-3 mr-1 rounded">
+                Accueil
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <h2 class="mt-2 text-sm text-gray-500">{{ campaign.dateCreated }}</h2>
+    <p class="text-sm mt-6">{{ campaign.description }}</p>
+  </article>
+</main>
+
+
+<div class="container mx-auto py-10 flex justify-center h-screen">
+  <div class="w-full pl-4 h-full flex flex-col">
+    <div class="bg-green-500 text-sm text-black font-bold px-5 py-2 shadow border-b border-gray-300">
+      CONTRIBUTIONS RECENTES
+    </div>
+
+    <div class="w-full h-full overflow-auto shadow bg-green-50" id="journal-scroll">
+      <table class="w-full">
+        <tbody class="">
+          <tr *ngFor="let comment of campaign.transactions " class="relative transform scale-100 text-xs py-1 border-b-2 border-blue-100 cursor-default">
+
+            <td class="pl-5 pr-3 whitespace-no-wrap">
+              <div class="text-gray-400">{{ comment.dateCreated | date }}</div>
+              <div>Via Paydunya</div>
+            </td>
+
+            <td class="px-2 py-2 whitespace-no-wrap">
+              <div class="leading-5 text-gray-500 font-medium">
+                {{ comment.donatorName ? comment.donatorName : 'Anonyme' }} a donné
+                <span class="text-sm text-black font-bold">{{ comment.amount | number: '1.2-2' }} FCFA</span>
+              </div>
+              <div class="leading-5 text-gray-900">{{ comment.comment ? comment.comment.substring(0, 100) : 'We rise together!' }}</div>
+              <div class="leading-5 text-gray-800">Via Paydunya</div>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
