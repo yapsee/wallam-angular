@@ -40,7 +40,7 @@ export class DonateComponent  implements OnInit {
         },
         (error) => {
           if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {
-            //this.openModal('Bad Credentials', 'The email or password is incorrect. Please try again.');
+           
           } else {
             console.error('Unexpected error:', error);
           }

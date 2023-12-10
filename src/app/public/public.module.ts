@@ -9,6 +9,8 @@ import { ComponentsModule } from '../shared/components/components.module';
 import { CampaignsPublicComponent } from './campaigns-public/campaigns-public.component';
 import { ShowComponent } from './show/show.component';
 import { DonateComponent } from './donate/donate.component';
+import { SuccessPaymentComponent } from './success-payment/success-payment.component';
+import { CancelPaymentComponent } from './cancel-payment/cancel-payment.component';
 
 
 
@@ -19,7 +21,9 @@ import { DonateComponent } from './donate/donate.component';
     PublicComponent,
     CampaignsPublicComponent,
     ShowComponent,
-    DonateComponent
+    DonateComponent,
+    SuccessPaymentComponent,
+    CancelPaymentComponent
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, ComponentsModule],
 })
