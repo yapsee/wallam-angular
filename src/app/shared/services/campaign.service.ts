@@ -31,8 +31,8 @@ export class CampaignService {
   }
 
 
-  createCampaign(data: Campaign): Observable<Campaign> {
-    return this.http.post<Campaign>(`${api}/campaigns/create`, data);
+  createCampaign(data: any): Observable<Response> {
+    return this.http.post<Response>(`${api}/campaigns/create`, data);
   }
 
   

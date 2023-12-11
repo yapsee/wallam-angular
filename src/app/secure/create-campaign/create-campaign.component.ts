@@ -28,7 +28,12 @@ export class CreateCampaignComponent implements OnInit {
 
   onSubmit() {
     if (this.campaignForm.valid) {
-      const formData =  this.campaignForm.getRawValue();
+      const formData = new FormData();
+      formData.append('title', this.campaignForm.get('title')!.value);
+      formData.append('description', this.campaignForm.get('description')!.value);
+      formData.append('target', this.campaignForm.get('target')!.value);
+      formData.append('illustration', this.campaignForm.get('illustration')!.value);
+      formData.append('kind', this.campaignForm.get('kind')!.value);
 
   
       this.campaignService.createCampaign(formData).subscribe(
