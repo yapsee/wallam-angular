@@ -1,1 +1,85 @@
-<p>dashboard works!</p>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12">
+  <div  class="bg-white rounded-lg shadow-xl overflow-hidden">
+    <div class="p-4">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Bonjour </h2>
+      <div>
+        <p><strong>Name:</strong> </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 mt-12 mb-12 ">
+  <article>
+    <a routerLink="/launch" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-2 px-1 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE </a>     
+    <h2 class="text-2xl font-bold text-gray-900">MES CAMPAGNES</h2>
+    <section class="mt-6 grid md:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-8 ">
+      <div *ngFor="let campaign of campaigns" class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+        <div class="relative w-full h-80 md:h-64 lg:h-44 ">
+          <img [src]="campaign.image" alt="Campaign Image" class="w-full h-full object-center object-cover">
+        </div>
+        <div class="px-3 py-4">
+          <h3 class="text-base font-semi-bold text-dark pb-2">
+            <a class="py-1 px-2 text-green rounded-lg" >
+              <span class="absolute inset-0"></span>
+              {{ campaign.title }}
+            </a>
+          </h3>
+          <p class="text-sm text-dark group-hover:text-green-400">{{ campaign.description }}</p>
+        </div>
+      </div>
+    </section>
+  </article>
+</section>
+
+<section class="relative py-16 bg-blueGray-50">
+  <div class="w-full mb-12 px-4">
+    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-green-600 text-white">
+      <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="flex flex-wrap items-center">
+          <div class="relative w-full px-4 max-w-full flex-grow flex-1 ">
+            <h3 class="font-semibold text-lg text-white">WALLAM INSIGHTS</h3>
+          </div>
+        </div>
+      </div>
+      <div class="block w-full overflow-x-auto">
+        <table class="items-center w-full bg-transparent border-collapse">
+          <thead>
+            <tr>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-white border-green-500">CAMPAGNE</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-white border-green-500">OBJECTIF</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-white border-green-500">SOMME RECOLTEE</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-white border-green-500">STATUS</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-white border-green-500">Completion</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-white border-green-500">MONTANT RETRAIT NET </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let campaign of campaigns">
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                <img [src]="campaign.image" class="h-12 w-12 bg-white rounded-full border" alt="Campaign Image">
+                <span class="ml-3 font-bold text-white">{{ campaign.title }}</span>
+              </th>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ campaign.target }}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ campaign.accountBalance }}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <i class="fas fa-circle text-orange-500 mr-2"></i> {{ campaign.status == 'OPENED'  ? 'ouvert' : 'cloturé' }}
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <div class="flex items-center">
+                  <span class="mr-2">{{ campaign.progress }}%</span>
+                  <div class="relative w-full">
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
+                      <div [style.width.%]="campaign.progress" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ campaign.montantNet }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
