@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
+import { NotificationComponent } from 'src/app/shared/components/notification/notification.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -10,11 +13,14 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  bsModalRef!: BsModalRef;
+
 
     constructor(
       private authService: AuthService,
       private router: Router,
-      private formBuilder: FormBuilder
+      private formBuilder: FormBuilder,
+      private modalService: BsModalService
     ) {
       this.loginForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
@@ -35,18 +41,20 @@ export class LoginComponent implements OnInit {
           },
           (error) => {
             if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {
-              //this.openModal('Bad Credentials', 'The email or password is incorrect. Please try again.');
+              this.openModal('Bad Credentials', 'Email ou mot de passe incorrect');
             } else {
-              console.error('Unexpected error:', error);
+              this.openModal('Validation', 'Merci de remplir correctement les champs.');
             }
           }
         );
       }
+      else {
+        this.openModal('Form Validation', 'Please fill in all required fields correctly.');
+      }
     }
+    openModal(title: string, message: string) {
+      const initialState = { title, message };
+      this.bsModalRef = this.modalService.show(NotificationComponent, { initialState });
   
-    // openModal(title: string, message: string) {
-    //   const modalRef = this.modalService.open(ModalComponent); // ModalComponent should be replaced with the actual name of your modal component
-    //   modalRef.componentInstance.title = title;
-    //   modalRef.componentInstance.message = message;
-    // }
+    }
   }
