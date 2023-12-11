@@ -1,3 +1,62 @@
+<nav class="bg-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+      <div class="flex space-x-7">
+        <div>
+          <!-- Website Logo -->
+          <a href="/" class="flex items-center py-4 px-2">
+            <img src="assets/images/wallam.png" alt="Logo" class="h-8 w-8 mr-2">
+            <span class="font-semibold text-green-500 text-lg">WALLAM</span>
+          </a>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="/how_it_works" class="py-4 px-2  font-2xl text-dark-500 font-semibold hover:text-green-500 transition duration-300">Comment ça marche?</a>
+        </div>
+    
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="/dashboard" class="py-4 px-2  font-2xl text-dark-500 font-semibold hover:text-green-500 transition duration-300">Mes campagnes</a>
+          </div>
+
+      </div>
+      <!-- Secondary Navbar items -->
+      <div class="hidden md:flex items-center space-x-3 ">
+      
+        <a href="/register"  class="py-3 px-6 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Inscription</a> 
+       
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button class="outline-none mobile-menu-button">
+        <svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+          x-show="!showMenu"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      </div>
+    </div>
+  </div>
+  <div class="hidden mobile-menu">
+    <ul class="">
+      <li ><a href="/how_it_works" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Comment ça marche?</a></li>
+      
+
+     
+        <li ><a href="/login" class="block text-sm py-4 px-2 mt-1 font-medium text-white bg-green-500 rounded hover:bg-green-500 hover:text-white ">Se connecter</a> </li>    
+
+    </ul>
+  </div>
+  
+</nav>
+
+
 <div class="relative bg-white overflow-hidden">
   <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
@@ -46,12 +105,10 @@
               </div>
             </div>
           </div>
-          <!-- <% if user_signed_in? %>
-          <a href="/campaigns" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-3 px-8 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE </a>     
-          <% else %>
-          <a href="/users/sign_up" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-3 px-8  md:text-2xl text-gray-900 hover:bg-green-700">Demarrer une campagne</a>
-          <% end %>
-          -->
+         
+          <a href="/launch" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-3 px-8 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE </a>     
+          
+
         </div>
       </div>
     </div>
