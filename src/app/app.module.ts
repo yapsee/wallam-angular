@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { SecureModule } from './secure/secure.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
   ],
   imports: [
     BrowserModule,HttpClientModule,
-    AppRoutingModule,PublicModule
+    AppRoutingModule,PublicModule, SecureModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
