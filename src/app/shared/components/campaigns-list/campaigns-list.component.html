@@ -18,7 +18,7 @@
             <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-100">
               <div [style.width]="campaign.progress + '%'" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
             </div>
-            <i class="text-green-500 mr-2">{{ campaign.status == 'OPENED'  ? 'ouverte' : 'cloturée' }}</i> 
+            <i class="text-green-500 mr-2">{{ campaign.status == 'OPENED'  ? 'ouvert' : 'cloturée' }}</i> 
             <p class="text-base leading-relaxed text-gray-500 font-normal line-clamp-3">{{ campaign.description }} <span class="text-green-500"> Voir plus</span></p>
 
             <div class="flex justify-start space-x-2">

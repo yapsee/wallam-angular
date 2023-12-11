@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   
     submit() {
       if (this.loginForm.valid) {
+        localStorage.removeItem('token');
         let data = this.loginForm.getRawValue();
         this.authService.authentification(data).subscribe(
           (responseData: any) => {
