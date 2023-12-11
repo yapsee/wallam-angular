@@ -11,6 +11,7 @@ import { ShowComponent } from './show/show.component';
 import { DonateComponent } from './donate/donate.component';
 import { SuccessPaymentComponent } from './success-payment/success-payment.component';
 import { CancelPaymentComponent } from './cancel-payment/cancel-payment.component';
+import { ExplainComponent } from './explain/explain.component';
 
 
 
@@ -23,7 +24,8 @@ import { CancelPaymentComponent } from './cancel-payment/cancel-payment.componen
     ShowComponent,
     DonateComponent,
     SuccessPaymentComponent,
-    CancelPaymentComponent
+    CancelPaymentComponent,
+    ExplainComponent
   ],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, ComponentsModule],
 })

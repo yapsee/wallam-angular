@@ -12,6 +12,7 @@ import { CreateCampaignComponent } from './secure/create-campaign/create-campaig
 import { SecureComponent } from './secure/secure.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { ExplainComponent } from './public/explain/explain.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'transactions/donate/:id', component: DonateComponent },
       { path: 'cancel', component: CancelPaymentComponent },
       { path: 'success', component: SuccessPaymentComponent },
+      { path: 'how_it_works', component: ExplainComponent },
 
     ],
   },
