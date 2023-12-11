@@ -4,14 +4,15 @@ import { AuthcomponentComponent } from './authcomponent/authcomponent.component'
 import { CampaignsListComponent } from './campaigns-list/campaigns-list.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
-  declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent],
+  declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent, NavbarComponent],
   imports: [
     CommonModule, RouterModule
   ],
-  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent],
+  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent],
 })
 export class ComponentsModule { }
