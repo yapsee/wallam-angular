@@ -41,15 +41,15 @@ export class LoginComponent implements OnInit {
           },
           (error) => {
             if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {
-              this.openModal('Bad Credentials', 'Email ou mot de passe incorrect');
+              this.openModal('Credentials', 'Email ou mot de passe incorrect');
             } else {
-              this.openModal('Validation', 'Merci de remplir correctement les champs.');
+              this.openModal('Serveur', 'Email deja existant.');
             }
           }
         );
       }
       else {
-        this.openModal('Form Validation', 'Please fill in all required fields correctly.');
+        this.openModal('Validation', 'Merci de remplir correctement les champs.');
       }
     }
     openModal(title: string, message: string) {

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationData } from 'src/app/shared/models/registration.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class RegisterComponent  implements OnInit {
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router,) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private modalService : ModalService,) {
     this.registrationForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -35,16 +36,24 @@ export class RegisterComponent  implements OnInit {
       this.authService.register(formData).subscribe(
         (responseData: any) => {
           localStorage.setItem('token', responseData['token']);
+          this.modalService.showNotification('Success', 'Votre compte a ete cree avec succes.', 10000); 
           this.router.navigateByUrl('dashboard');
         },
         (error) => {
           if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {
-            //this.openModal('Bad Credentials', 'The email or password is incorrect. Please try again.');
-          } else {
-            console.error('Unexpected error:', error);
+            this.modalService.showNotification('Validation', 'Merci de remplir correctement les champs.', 10000); 
+ 
+          } else { 
+            this.modalService.showNotification('Serveur', 'Veuillez recommencer ulterieurement svp.', 10000); 
+ 
           }
         }
       );
+    }
+    else {
+
+     this.modalService.showNotification('Validation', 'Merci de remplir correctement les champs.', 10000); 
+ 
     }
   }
 }
