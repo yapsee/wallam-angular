@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth } from 'src/app/shared/classes/auth';
+import { User } from 'src/app/shared/models/user.model';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
 
 @Component({
@@ -8,6 +10,7 @@ import { CampaignService } from 'src/app/shared/services/campaign.service';
 })
 export class DashboardComponent implements OnInit {
   campaigns: any;
+  currentUser!: User ;
 
   constructor(
     private campaignService: CampaignService
@@ -17,12 +20,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.campaignService.getAllCampaigns().subscribe(
+    this.campaignService.getCurrentUserCampaigns().subscribe(
       (responseData: any) => {
        this.campaigns = responseData
       }
     );
-  
+
+
+    this.currentUser = Auth.user;
+
   }
  
 }

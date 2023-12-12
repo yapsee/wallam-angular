@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-create-campaign',
@@ -10,7 +12,7 @@ import { CampaignService } from 'src/app/shared/services/campaign.service';
 export class CreateCampaignComponent implements OnInit {
   campaignForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private campaignService: CampaignService) {}
+  constructor(private fb: FormBuilder, private campaignService: CampaignService, private modalService: ModalService,  private router: Router,) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -38,14 +40,17 @@ export class CreateCampaignComponent implements OnInit {
   
       this.campaignService.createCampaign(formData).subscribe(
         (response) => {
-          console.log('Campaign created successfully!', response);
-          // Handle the success, maybe redirect or show a success message
+          this.modalService.showNotification('Succes', 'Campagne créee avec succes.', 10000); 
+          this.router.navigateByUrl('dashboard');
         },
         (error) => {
-          console.error('Error creating campaign:', error);
-          // Handle the error, maybe show an error message
+          this.modalService.showNotification('serveur', 'Merci de verifier les informations.', 10000); 
         }
       );
+    }
+
+    else {
+      this.modalService.showNotification('Validation', 'Merci de remplir correctement les champs.', 10000); 
     }
   }
 }

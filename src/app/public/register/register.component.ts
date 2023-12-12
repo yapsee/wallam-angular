@@ -51,9 +51,8 @@ export class RegisterComponent  implements OnInit {
       );
     }
     else {
-
      this.modalService.showNotification('Validation', 'Merci de remplir correctement les champs.', 10000); 
- 
+
     }
   }
 }
