@@ -10,7 +10,7 @@
               </div>
               <div class="w-full md:w-5/5 text-left p-6 md:p-4 space-y-2 ">
                 <p class="text-xl text-gray-700 inline-block font-bold">{{ campaign.title }}</p>
-            <p class="text-sm">crée le : {{ campaign.dateCreated }}</p>
+            <p class="text-sm">crée le : {{ campaign.dateCreated | date}}</p>
             <div class="text-right">
               <span class="text-xs font-bold inline-block text-green">{{ campaign.accountBalance }}</span>
               <p class="text-xs inline-block">recoltée sur {{ campaign.target }} XOF</p>
