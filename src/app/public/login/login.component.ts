@@ -37,7 +37,12 @@ export class LoginComponent implements OnInit {
         this.authService.authentification(data).subscribe(
           (responseData: any) => {
             localStorage.setItem('token', responseData['token']);
-            this.router.navigateByUrl('dashboard');
+
+              if (responseData['role'] === 'USER') {
+                this.router.navigateByUrl('dashboard'); 
+              } else {
+                this.router.navigateByUrl('admin'); 
+              }
           },
           (error) => {
             if (error.status === 500 && error.error && error.error.exception === 'BadCredentialsException') {

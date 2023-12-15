@@ -14,9 +14,14 @@ const api = environment.api;
 export class CampaignService {
 
   constructor(private http: HttpClient) {}
-  getAllCampaigns(): Observable<any[]> {
+  getVerifiedCampaigns(): Observable<any[]> {
     return this.http.get<any[]>(`${api}/campaigns/public`);
   }
+
+  getAllCampaigns(): Observable<any[]> {
+    return this.http.get<any[]>(`${api}/campaigns/admin`);
+  }
+
 
   getCurrentUserCampaigns(): Observable<Campaign[]> {
     return this.http.get<Campaign[]>(`${api}/campaigns/me`);

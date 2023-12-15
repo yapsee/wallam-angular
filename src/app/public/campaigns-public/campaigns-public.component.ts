@@ -17,7 +17,7 @@ export class CampaignsPublicComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.campaignService.getAllCampaigns().subscribe(
+    this.campaignService.getVerifiedCampaigns().subscribe(
       (responseData: any) => {
        this.campaigns = responseData
       }

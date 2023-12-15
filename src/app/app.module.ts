@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { SecureModule } from './secure/secure.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   ],
   imports: [
     BrowserModule,HttpClientModule,ModalModule.forRoot(),
-    AppRoutingModule,PublicModule, SecureModule
+    AppRoutingModule,PublicModule, SecureModule, AdminModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

@@ -13,6 +13,9 @@ import { SecureComponent } from './secure/secure.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { ExplainComponent } from './public/explain/explain.component';
+import { AdminComponent } from './admin/admin.component';
+import { ManagementComponent } from './admin/management/management.component';
+import { AdminGuard } from './shared/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -40,6 +43,16 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'launch', component: CreateCampaignComponent },
+    ],
+  },
+  {
+    path: '',
+    component: AdminComponent,
+    canActivate: [AdminGuard],
+    children: [
+
+      { path: 'admin', component:  ManagementComponent},
+     
     ],
   },
 ];
