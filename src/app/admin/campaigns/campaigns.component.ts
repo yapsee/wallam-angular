@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CampaignsStatusComponent } from 'src/app/shared/components/campaigns-status/campaigns-status.component';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
 
 @Component({
@@ -8,9 +10,11 @@ import { CampaignService } from 'src/app/shared/services/campaign.service';
 })
 export class CampaignsComponent implements OnInit {
   campaigns!: any[] ;
+  bsModalRef!: BsModalRef;
 
   constructor(
-    private campaignService: CampaignService
+    private campaignService: CampaignService, 
+    private modalService: BsModalService
   ) {
 
   }
@@ -34,14 +38,20 @@ export class CampaignsComponent implements OnInit {
     }
   }
 
-  editCampaign(campaign: any) {
-    // Example: Toggle between 'OPENED' and 'CLOSED'
-    campaign.status = campaign.status === 'OPENED' ? 'CLOSED' : 'OPENED';
+  openStatusSelectionModal(campaign: any) {
+    
+    const initialState = {
+      selectedStatus: campaign.status
+    };
 
-    // Alternatively, you can implement more complex logic to handle different status changes
+    this.bsModalRef = this.modalService.show(CampaignsStatusComponent, { initialState });
 
-    // Log the updated campaign
-    console.log('Updated campaign:', campaign);
+    // Subscribe to the statusConfirmed event from the modal
+    this.bsModalRef.content.statusConfirmed.subscribe((selectedStatus: string) => {
+      // Update the campaign status
+      campaign.status = selectedStatus;
+      console.log('Updated campaign:', campaign);
+    });
   }
  
 }

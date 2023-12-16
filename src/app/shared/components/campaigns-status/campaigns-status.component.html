@@ -1,0 +1,9 @@
+<div class="modal">
+  <label for="status">Select Status:</label>
+  <select id="status" [(ngModel)]="selectedStatus">
+    <option value="OPENED">Opened</option>
+    <option value="CLOSED">Closed</option>
+    <!-- Add other status options as needed -->
+  </select>
+  <button (click)="confirmStatus()">Confirm</button>
+</div>
