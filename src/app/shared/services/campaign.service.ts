@@ -19,7 +19,7 @@ export class CampaignService {
   }
 
   getAllCampaigns(): Observable<any[]> {
-    return this.http.get<any[]>(`${api}/campaigns/admin`);
+    return this.http.get<any[]>(`${api}/admin/campaigns`);
   }
 
 

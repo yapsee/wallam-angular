@@ -3,12 +3,14 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTr
 import { Observable } from "rxjs";
 import { Auth } from "../classes/auth";
 import { AuthService } from "../services/auth.service";
+import { ModalService } from "../services/modal.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private modalService: ModalService) {}
+
 
   async canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,6 +22,7 @@ export class AdminGuard implements CanActivate {
         Auth.user = data;
         return true; 
       } else {
+        this.modalService.showNotification('Erreur dentifaction', 'Votre role ne vous permet pas.', 10000); 
         this.router.navigate(['/login']);
         return false; 
       }

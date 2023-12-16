@@ -16,6 +16,9 @@ import { ExplainComponent } from './public/explain/explain.component';
 import { AdminComponent } from './admin/admin.component';
 import { ManagementComponent } from './admin/management/management.component';
 import { AdminGuard } from './shared/guards/admin.guard';
+import { UsersComponent } from './admin/users/users.component';
+import { CampaignsComponent } from './admin/campaigns/campaigns.component';
+import { TransactionsComponent } from './admin/transactions/transactions.component';
 
 const routes: Routes = [
   {
@@ -52,6 +55,9 @@ const routes: Routes = [
     children: [
 
       { path: 'admin', component:  ManagementComponent},
+      { path: 'admin/users', component:  UsersComponent},
+      { path: 'admin/campaigns', component:  CampaignsComponent},
+      { path: 'admin/transactions', component:  TransactionsComponent},
      
     ],
   },
