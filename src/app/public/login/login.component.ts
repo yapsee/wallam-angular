@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
-import { NotificationComponent } from 'src/app/shared/components/notification/notification.component';
+import { NotificationComponent } from 'src/app/shared/components/modals/notification/notification.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({

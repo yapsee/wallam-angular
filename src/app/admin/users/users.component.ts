@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { UserShowComponent } from 'src/app/shared/components/modals/user-show/user-show.component';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -9,10 +11,12 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class UsersComponent {
 
 
- users : any[] = [];;
+ users : any[] = [];
+ bsModalRef!: BsModalRef;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private modalService: BsModalService
   ) {
 
   }
@@ -35,6 +39,19 @@ export class UsersComponent {
     } else {
       this.filteredUsers = this.users.filter(user => user.role === role);
     }
+  }
+
+  deleteUser(user: any) {
+    console.log('Delete campaign:', user);
+  }
+
+
+  openUserInfoModal(user: any) {
+    const initialState = {
+      user: user
+    };
+
+    this.bsModalRef = this.modalService.show(UserShowComponent, { initialState });
   }
 }
 

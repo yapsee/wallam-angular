@@ -17,6 +17,11 @@ export class CampaignsStatusComponent {
     this.statusConfirmed.emit(this.selectedStatus);
     this.bsModalRef.hide(); 
   }
+
+  close() {
+   
+    this.bsModalRef.hide(); 
+  }
 }
 
 

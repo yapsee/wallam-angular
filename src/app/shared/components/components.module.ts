@@ -5,18 +5,19 @@ import { CampaignsListComponent } from './campaigns-list/campaigns-list.componen
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NotificationComponent } from './notification/notification.component';
+import { NotificationComponent } from './modals/notification/notification.component';
 
-import { FormsModule } from '@angular/forms';
-import { CampaignsStatusComponent } from './campaigns-status/campaigns-status.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CampaignsStatusComponent } from './modals/campaigns-status/campaigns-status.component';
+import { UserShowComponent } from './modals/user-show/user-show.component';
 
 
 
 @NgModule({
-  declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent, CampaignsStatusComponent],
+  declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent, CampaignsStatusComponent, UserShowComponent],
   imports: [
-    CommonModule, RouterModule, FormsModule
+    CommonModule, RouterModule, FormsModule, ReactiveFormsModule
   ],
-  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent, CampaignsStatusComponent],
+  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent, CampaignsStatusComponent, UserShowComponent],
 })
 export class ComponentsModule { }

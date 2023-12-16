@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NotificationComponent } from '../components/notification/notification.component';
+import { NotificationComponent } from '../components/modals/notification/notification.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Injectable({

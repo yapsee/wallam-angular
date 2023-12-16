@@ -1,0 +1,16 @@
+
+
+
+<div class="fixed inset-0 z-500 overflow-auto bg-black bg-opacity-30 flex justify-center items-center">
+  <div class="bg-white w-96 p-6 rounded shadow-lg">
+    <label for="status" class="block text-sm font-medium text-gray-700">Select Status:</label>
+    <select id="status" [(ngModel)]="selectedStatus" class="mt-1 block w-full p-2 border rounded-md">
+      <option value="OPENED">Approuver</option>
+      <option value="CLOSED">Fermer</option>
+      <option value="PENDING">En revision</option>
+      <option value="SUSPENDED">Suspendre</option>
+    </select>
+    <button (click)="confirmStatus()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">Confirm</button>
+    <button (click)="close()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">Close</button>
+  </div>
+</div>

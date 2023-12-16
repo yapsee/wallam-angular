@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { CampaignsStatusComponent } from 'src/app/shared/components/campaigns-status/campaigns-status.component';
+import { CampaignsStatusComponent } from 'src/app/shared/components/modals/campaigns-status/campaigns-status.component';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
 
 @Component({
@@ -46,9 +46,8 @@ export class CampaignsComponent implements OnInit {
 
     this.bsModalRef = this.modalService.show(CampaignsStatusComponent, { initialState });
 
-    // Subscribe to the statusConfirmed event from the modal
     this.bsModalRef.content.statusConfirmed.subscribe((selectedStatus: string) => {
-      // Update the campaign status
+
       campaign.status = selectedStatus;
       console.log('Updated campaign:', campaign);
     });
