@@ -40,6 +40,12 @@ export class CampaignService {
     return this.http.post<Response>(`${api}/campaigns/create`, data);
   }
 
+
+  changeStatus(campaignId: string, status: string): Observable<Response> {
+    return this.http.put<Response>(`${api}/admin/campaigns/${campaignId}/status-change`, null, { params: { status } });
+
+  }
+
   
  
 }

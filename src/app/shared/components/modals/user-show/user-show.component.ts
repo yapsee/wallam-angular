@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { User } from 'src/app/shared/models/user.model';
+import { ModalService } from 'src/app/shared/services/modal.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class UserShowComponent implements OnInit {
   @Input() user!: any; 
   userForm!: FormGroup;
 
-  constructor(public bsModalRef: BsModalRef, private fb: FormBuilder, private userService: UserService) {
+  constructor(public bsModalRef: BsModalRef, private fb: FormBuilder, private userService: UserService,  private notificationService: ModalService) {
     this.userForm = this.fb.group({
       email: [this.user?.email, [Validators.required, Validators.email]],
       firstName: [this.user?.firstName, Validators.required],
@@ -29,17 +30,21 @@ export class UserShowComponent implements OnInit {
   }
 
   updateUser() {
-    // Validate the form
-    if (this.userForm.valid) {
-      // Extract updated user information from the form
-    
-            // Optionally handle success (e.g., show a success message)
-            console.log('User updated successfully', this.userForm.value);
-       
-      // Close the modal
+    const updatedUser = this.userForm.value;
+      this.userService.updateUser(this.user.id, updatedUser)
+        .subscribe(
+          () => {
+            this.notificationService.showNotification('Success', 'Changement reussi.', 10000); 
+
+          },
+          error => {
+            this.notificationService.showNotification('Erreur', 'Une erreur sest produite.', 10000); 
+
+          }
+        );
+
       this.closeModal();
     }
-  }
 
 
   closeModal() {

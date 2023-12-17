@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CampaignsStatusComponent } from 'src/app/shared/components/modals/campaigns-status/campaigns-status.component';
 import { CampaignService } from 'src/app/shared/services/campaign.service';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-campaigns',
@@ -14,7 +15,8 @@ export class CampaignsComponent implements OnInit {
 
   constructor(
     private campaignService: CampaignService, 
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private notificationService: ModalService
   ) {
 
   }
@@ -49,7 +51,17 @@ export class CampaignsComponent implements OnInit {
     this.bsModalRef.content.statusConfirmed.subscribe((selectedStatus: string) => {
 
       campaign.status = selectedStatus;
-      console.log('Updated campaign:', campaign);
+      
+
+      this.campaignService.changeStatus(campaign.id, selectedStatus).subscribe(
+        (responseData: any) => {
+
+          this.notificationService.showNotification('Success', 'Changement de la campagne reussi.', 10000); 
+        },
+        (error) => {
+          this.notificationService.showNotification('Serveur', 'Veuillez recommencer ulterieurement svp.', 10000); 
+        }
+      );
     });
   }
  
