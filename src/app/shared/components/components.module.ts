@@ -10,14 +10,19 @@ import { NotificationComponent } from './modals/notification/notification.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CampaignsStatusComponent } from './modals/campaigns-status/campaigns-status.component';
 import { UserShowComponent } from './modals/user-show/user-show.component';
+import { PayComponent } from './modals/pay/pay.component';
+import { RetraitComponent } from './modals/retrait/retrait.component';
 
 
 
 @NgModule({
-  declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent, CampaignsStatusComponent, UserShowComponent],
+  declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent,
+                NavbarComponent, NotificationComponent, CampaignsStatusComponent,
+                UserShowComponent, PayComponent, RetraitComponent],
   imports: [
     CommonModule, RouterModule, FormsModule, ReactiveFormsModule
   ],
-  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent, CampaignsStatusComponent, UserShowComponent],
+  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent,
+            CampaignsStatusComponent, UserShowComponent, PayComponent, RetraitComponent],
 })
 export class ComponentsModule { }

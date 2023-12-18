@@ -15,7 +15,7 @@
     <a routerLink="/launch" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-2 px-1 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE </a>     
     <h2 class="text-2xl font-bold text-gray-900">MES CAMPAGNES</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div *ngFor="let campaign of campaigns" class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+      <div *ngFor="let campaign of campaigns" class="bg-white   rounded-lg overflow-hidden shadow-lg hover:shadow-2xl ">
         <div class="relative w-full h-80 md:h-64 lg:h-44 ">
           <img src="assets/images/together.jpg" alt="Campaign Image" class="w-full h-full object-center object-cover">
         </div>
@@ -28,8 +28,8 @@
           </h3>
           <p class="text-sm text-dark group-hover:text-green-400 line-clamp-3">{{ campaign.description }}</p>
           <div *ngIf="campaign.status === 'OPENED'; else closedStatus">
-            <a>
-              <button type="button"  class="block w-3/5 max-w-xs mx-auto bg-green-200 hover:bg-indigo-200 focus:bg-indigo-700 text-white rounded-lg px-1 py-1 mt-6">
+            <a >
+              <button (click)="paymentForm(campaign)" type="button"  class="block w-3/5 max-w-xs mx-auto bg-green-200 hover:bg-indigo-200 focus:bg-indigo-700 text-white rounded-lg px-1 py-1 mt-6">
                 Demander un paiement
              </button>
             </a>
@@ -45,6 +45,7 @@
   </article>
 </div>
 </section>
+
 
 <section class="relative py-16 bg-blueGray-50">
   <div class="w-full mb-12 px-4">

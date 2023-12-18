@@ -19,6 +19,7 @@ import { AdminGuard } from './shared/guards/admin.guard';
 import { UsersComponent } from './admin/users/users.component';
 import { CampaignsComponent } from './admin/campaigns/campaigns.component';
 import { TransactionsComponent } from './admin/transactions/transactions.component';
+import { WithdrawsComponent } from './admin/withdraws/withdraws.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,7 @@ const routes: Routes = [
       { path: 'admin/users', component:  UsersComponent},
       { path: 'admin/campaigns', component:  CampaignsComponent},
       { path: 'admin/transactions', component:  TransactionsComponent},
+      { path: 'admin/withdraws', component:  WithdrawsComponent},
      
     ],
   },

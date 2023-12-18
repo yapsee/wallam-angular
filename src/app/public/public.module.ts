@@ -12,7 +12,6 @@ import { DonateComponent } from './donate/donate.component';
 import { SuccessPaymentComponent } from './success-payment/success-payment.component';
 import { CancelPaymentComponent } from './cancel-payment/cancel-payment.component';
 import { ExplainComponent } from './explain/explain.component';
-import { TransactionPipe } from '../shared/pipes/transaction.pipe';
 import { PipesModule } from '../shared/pipes/pipes.module';
 
 
