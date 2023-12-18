@@ -1,10 +1,14 @@
 <form [formGroup]="retraitForm" (ngSubmit)="askPayment()" class="modal-content w-full max-w-sm p-6 mx-auto bg-white rounded-md shadow-md">
   
   <div class="mb-4">
-    <label for="method" class="block text-sm font-medium text-gray-700">Methode paiement:</label>
-    <input type="text" id="method" formControlName="method" class="mt-1 p-2 w-full border rounded-md">
+    <label for="method" class="block text-sm font-medium text-gray-700">Methode de paiement:</label>
+    <select id="method" formControlName="method" class="mt-1 p-2 w-full border rounded-md">
+        <option value="WAVE" selected>WAVE</option>
+        <option value="ORANGEMONEY">ORANGE MONEY</option>
+        <option value="DJAMO">DJAMO</option>
+        <option value="FREEMONEY">FREEMONEY</option>
+    </select>
   </div>
-
 
   <div class="mb-4">
     <label for="phone" class="block text-sm font-medium text-gray-700">Numero de telephone:</label>
@@ -13,8 +17,8 @@
 
 
   <div class="flex items-center justify-between mt-4">
-    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Update</button>
-    <button type="button" (click)="closeModal()" class="px-4 py-2 text-gray-500 rounded-md">Close</button>
+    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Retrait</button>
+    <button type="button" (click)="closeModal()" class="bg-red-500 px-4 py-2 text-white rounded-md">Close</button>
   </div>
 </form>
 
