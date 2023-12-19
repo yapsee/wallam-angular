@@ -4,7 +4,7 @@ import { AdminComponent } from './admin.component';
 import { ManagementComponent } from './management/management.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './nav/nav.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '../shared/components/components.module';
 import { PipesModule } from '../shared/pipes/pipes.module';
@@ -26,6 +26,6 @@ import { WithdrawsComponent } from './withdraws/withdraws.component';
     TransactionsComponent,
     WithdrawsComponent
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, ComponentsModule, PipesModule],
+  imports: [CommonModule, RouterModule, FormsModule, ComponentsModule, PipesModule],
 })
 export class AdminModule { }

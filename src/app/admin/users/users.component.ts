@@ -15,6 +15,7 @@ export class UsersComponent {
 
  users : any[] = [];
  bsModalRef!: BsModalRef;
+ searchTerm: string = '';
 
   constructor(
     private userService: UserService,
@@ -43,6 +44,20 @@ export class UsersComponent {
       this.filteredUsers = this.users.filter(user => user.role === role);
     }
   }
+
+  search(): void {
+    if (!this.searchTerm.trim()) {
+      this.filterUsers('ALL');
+      return;
+    }
+
+    this.filteredUsers = this.users.filter(user =>
+      user.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      user.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+  
 
   deleteUser(user: any) {
     this.userService.deleteUser(user.id).subscribe(
