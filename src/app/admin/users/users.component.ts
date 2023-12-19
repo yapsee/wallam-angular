@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { UserAddComponent } from 'src/app/shared/components/modals/user-add/user-add.component';
 import { UserShowComponent } from 'src/app/shared/components/modals/user-show/user-show.component';
+import { ModalService } from 'src/app/shared/services/modal.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class UsersComponent {
 
   constructor(
     private userService: UserService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private notificationService: ModalService
   ) {
 
   }
@@ -43,7 +45,16 @@ export class UsersComponent {
   }
 
   deleteUser(user: any) {
-    console.log('Delete campaign:', user);
+    this.userService.deleteUser(user.id).subscribe(
+      (responseData: any) => {
+        this.notificationService.showNotification('Succces', 'Utilisateur supprime avec succees.', 10000); 
+
+      },
+      (error) => {
+          this.notificationService.showNotification('Erreur', 'Une erreur .', 10000); 
+ 
+      }
+    )
   }
 
 

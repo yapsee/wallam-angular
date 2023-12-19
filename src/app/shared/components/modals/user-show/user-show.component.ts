@@ -15,6 +15,10 @@ export class UserShowComponent implements OnInit {
   userForm!: FormGroup;
 
   constructor(public bsModalRef: BsModalRef, private fb: FormBuilder, private userService: UserService,  private notificationService: ModalService) {
+  
+  }
+
+  ngOnInit(): void {
     this.userForm = this.fb.group({
       email: [this.user?.email, [Validators.required, Validators.email]],
       firstName: [this.user?.firstName, Validators.required],
@@ -22,10 +26,6 @@ export class UserShowComponent implements OnInit {
       phone: [this.user?.phone, Validators.required],
      
     });
-  }
-
-  ngOnInit(): void {
-    
    
   }
 

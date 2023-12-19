@@ -24,5 +24,10 @@ export class UserService {
     const url = `${api}/users/auth/register`;
     return this.http.post(url, user);
   }
+
+  deleteUser(userId: String): Observable<any> {
+    const url = `${api}/admin/users/${userId}/delete`;
+    return this.http.delete(url);
+  }
  
 }
