@@ -12,17 +12,18 @@ import { CampaignsStatusComponent } from './modals/campaigns-status/campaigns-st
 import { UserShowComponent } from './modals/user-show/user-show.component';
 import { PayComponent } from './modals/pay/pay.component';
 import { RetraitComponent } from './modals/retrait/retrait.component';
+import { UserAddComponent } from './modals/user-add/user-add.component';
 
 
 
 @NgModule({
   declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent,
                 NavbarComponent, NotificationComponent, CampaignsStatusComponent,
-                UserShowComponent, PayComponent, RetraitComponent],
+                UserShowComponent, PayComponent, RetraitComponent,UserAddComponent],
   imports: [
     CommonModule, RouterModule, FormsModule, ReactiveFormsModule
   ],
   exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent,
-            CampaignsStatusComponent, UserShowComponent, PayComponent, RetraitComponent],
+            CampaignsStatusComponent, UserShowComponent, PayComponent, RetraitComponent, UserAddComponent],
 })
 export class ComponentsModule { }

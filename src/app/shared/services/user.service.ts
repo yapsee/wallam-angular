@@ -20,5 +20,9 @@ export class UserService {
     return this.http.put(url, updatedUser);
   }
   
+  addUser(user: any): Observable<any> {
+    const url = `${api}/users/auth/register`;
+    return this.http.post(url, user);
+  }
  
 }
