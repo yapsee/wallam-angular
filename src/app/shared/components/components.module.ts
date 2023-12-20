@@ -13,17 +13,18 @@ import { UserShowComponent } from './modals/user-show/user-show.component';
 import { PayComponent } from './modals/pay/pay.component';
 import { RetraitComponent } from './modals/retrait/retrait.component';
 import { UserAddComponent } from './modals/user-add/user-add.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 
 @NgModule({
   declarations: [AuthcomponentComponent, CampaignsListComponent,CampaignsListComponent, FooterComponent,
-                NavbarComponent, NotificationComponent, CampaignsStatusComponent,
+                NavbarComponent, NotificationComponent, CampaignsStatusComponent,PaginationComponent,
                 UserShowComponent, PayComponent, RetraitComponent,UserAddComponent],
   imports: [
     CommonModule, RouterModule, FormsModule, ReactiveFormsModule
   ],
-  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent,
+  exports: [AuthcomponentComponent, CampaignsListComponent, FooterComponent, NavbarComponent, NotificationComponent,PaginationComponent,
             CampaignsStatusComponent, UserShowComponent, PayComponent, RetraitComponent, UserAddComponent],
 })
 export class ComponentsModule { }
