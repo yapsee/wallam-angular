@@ -19,7 +19,7 @@
   />
   <div class="navbar-nav">
     <div class="nav-item text-nowrap d-flex text-white">
-      <a class="nav-link px-3" href="javascript:void(0)" routerLink="/profil">Yapppp</a>
+      <a class="nav-link px-3" href="javascript:void(0)" routerLink="/profil">{{user?.firstName}} {{user?.lastName}}</a>
       <a class="nav-link px-3" href="javascript:void(0)" (click)="logout()"
         >Sign out</a
       >

@@ -12,8 +12,8 @@
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-1 py-3">
   <div class="text-center pb-12">
     <article>
-      <a routerLink="/launch" class="inline-block text-center bg-green-500 border border-transparent rounded-md py-2 px-1 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE</a>
-      <h2 class="text-2xl font-bold text-gray-900">MES CAMPAGNES</h2>
+      <a routerLink="/launch" class="inline-block text-center bg-green-500 border border-transparent rounded-md mb-3 py-2 px-1 md:text-2xl text-gray-900 hover:bg-green-700">NOUVELLE CAMPAGNE</a>
+      <h2 class="text-xl mb-3 font-bold text-gray-900">MES CAMPAGNES</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let campaign of campaigns" class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl">
           <div class="w-full h-80 md:h-64 lg:h-44" [routerLink]="['/campaigns', campaign.id]">

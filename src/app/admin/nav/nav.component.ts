@@ -13,9 +13,7 @@ export class NavComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    Auth.userEmitter.subscribe((user:User)=>{
-        this.user=user;
-    })
+      this.user=Auth.user; 
   }
 
   logout() {
