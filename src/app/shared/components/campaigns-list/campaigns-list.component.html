@@ -6,7 +6,7 @@
           <div class="w-full mb-4 bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row lg:mb-6 border-2 border-green-500 border-opacity-0.5">
             <a [routerLink]="['/campaigns', campaign.id]">
               <div class="w-full md:w-5/5 h-80">
-                <img class="object-center object-cover w-full h-full" [src]="'assets/images/agriculture.jpeg'" alt="photo">
+                <img class="object-center object-cover w-full h-full" [src]="campaign.image ? campaign.image : 'assets/images/agriculture.jpeg'"  alt="photo">
               </div>
               <div class="w-full md:w-5/5 text-left p-6 md:p-4 space-y-2 ">
                 <p class="text-xl text-gray-700 inline-block font-bold">{{ campaign.title }}</p>
