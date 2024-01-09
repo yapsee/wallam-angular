@@ -17,7 +17,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let campaign of campaigns" class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl">
           <div class="w-full h-80 md:h-64 lg:h-44" [routerLink]="['/campaigns', campaign.id]">
-            <img src="assets/images/together.jpg" alt="Campaign Image" class="w-full h-full object-center object-cover">
+            <img  [src]="campaign.image ? campaign.image : 'assets/images/together.jpg'" src="assets/images/together.jpg" alt="Campaign Image" class="w-full h-full object-center object-cover">
           </div>
           <div class="px-3 py-4">
             <h3 class="text-base font-semi-bold text-dark pb-2">
